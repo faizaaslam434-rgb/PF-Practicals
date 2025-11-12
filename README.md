@@ -13,4 +13,12 @@
 |  |
 | ------- |
 | [0070-climbing-stairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0070-climbing-stairs) |
+## Array
+|  |
+| ------- |
+| [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
+## Two Pointers
+|  |
+| ------- |
+| [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
 <!---LeetCode Topics End-->

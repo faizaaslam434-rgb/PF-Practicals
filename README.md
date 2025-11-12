@@ -4,6 +4,7 @@
 ## Math
 |  |
 | ------- |
+| [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 | [0070-climbing-stairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0070-climbing-stairs) |
 ## Dynamic Programming
 |  |
@@ -21,4 +22,12 @@
 |  |
 | ------- |
 | [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
+## Hash Table
+|  |
+| ------- |
+| [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
+## String
+|  |
+| ------- |
+| [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 <!---LeetCode Topics End-->

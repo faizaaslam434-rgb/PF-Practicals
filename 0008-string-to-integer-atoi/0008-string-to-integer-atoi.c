@@ -1,26 +1,30 @@
-int myAtoi(char* s) {
-    int sign = 1;
-    long long result = 0;
+#include <limits.h>
 
-    // Skip whitespace
-    while (*s == ' ') s++;
+int myAtoi(char * s) {
+    int i = 0, sign = 1;
+    long result = 0;
 
-    // Check sign
-    if (*s == '-' || *s == '+') {
-        sign = (*s == '-') ? -1 : 1;
-        s++;
+    // 1. Skip leading whitespaces
+    while (s[i] == ' ') {
+        i++;
     }
 
-    // Convert digits
-    while (*s >= '0' && *s <= '9') {
-        result = result * 10 + (*s - '0');
-        s++;
+    // 2. Check for sign
+    if (s[i] == '+' || s[i] == '-') {
+        if (s[i] == '-') sign = -1;
+        i++;
     }
 
-    // Apply sign and clamp
-    result *= sign;
-    if (result > INT_MAX) return INT_MAX;
-    if (result < INT_MIN) return INT_MIN;
+    // 3. Convert digits to integer
+    while (s[i] >= '0' && s[i] <= '9') {
+        result = result * 10 + (s[i] - '0');
 
-    return (int)result;
+        // 4. Handle overflow
+        if (sign == 1 && result > INT_MAX) return INT_MAX;
+        if (sign == -1 && -result < INT_MIN) return INT_MIN;
+
+        i++;
+    }
+
+    return (int)(sign * result);
 }

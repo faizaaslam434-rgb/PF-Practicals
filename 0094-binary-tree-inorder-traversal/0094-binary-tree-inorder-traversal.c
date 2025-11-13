@@ -6,21 +6,22 @@
  *     struct TreeNode *right;
  * };
  */
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int* inorderTraversal(struct TreeNode* root, int* returnSize) {
-  int* res = malloc(sizeof(int) * 100); // Assuming max nodes <= 100 for simplicity
-    *returnSize = 0;
-    helper(root, res, returnSize);
-    return res;
+void inorder(struct TreeNode* root, int* result, int* index) {
+    if (root == NULL)
+        return;
+
+    inorder(root->left, result, index);   // Visit left subtree
+    result[(*index)++] = root->val;       // Visit root node
+    inorder(root->right, result, index);  // Visit right subtree
 }
 
-void helper(struct TreeNode* node, int* res, int* returnSize) {
-    if (node == NULL) return;
-    helper(node->left, res, returnSize);
-    res[*returnSize] = node->val;
-    (*returnSize)++;
-    helper(node->right, res, returnSize);
-}   
+int* inorderTraversal(struct TreeNode* root, int* returnSize) {
+    int* result = (int*)malloc(100 * sizeof(int));  // allocate space for result
+    *returnSize = 0;
+    inorder(root, result, returnSize);
+    return result;
 }

@@ -18,10 +18,12 @@
 |  |
 | ------- |
 | [0014-longest-common-prefix](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0014-longest-common-prefix) |
+| [0018-4sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0018-4sum) |
 | [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
 ## Two Pointers
 |  |
 | ------- |
+| [0018-4sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0018-4sum) |
 | [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
 ## Hash Table
 |  |
@@ -37,4 +39,8 @@
 |  |
 | ------- |
 | [0014-longest-common-prefix](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0014-longest-common-prefix) |
+## Sorting
+|  |
+| ------- |
+| [0018-4sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0018-4sum) |
 <!---LeetCode Topics End-->

@@ -5,6 +5,7 @@
 |  |
 | ------- |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
+| [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |
 | [0070-climbing-stairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0070-climbing-stairs) |
 ## Dynamic Programming
 |  |
@@ -37,6 +38,7 @@
 | [0008-string-to-integer-atoi](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0008-string-to-integer-atoi) |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 | [0014-longest-common-prefix](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0014-longest-common-prefix) |
+| [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |
 ## Trie
 |  |
 | ------- |
@@ -46,4 +48,12 @@
 | ------- |
 | [0015-3sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0015-3sum) |
 | [0018-4sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0018-4sum) |
+## Bit Manipulation
+|  |
+| ------- |
+| [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |
+## Simulation
+|  |
+| ------- |
+| [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |
 <!---LeetCode Topics End-->

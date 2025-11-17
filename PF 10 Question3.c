@@ -1,9 +1,9 @@
 #include<stdio.h>
 int main(void)
 {
-	printf("==============================================\n");
+	printf("============================================================\n");
 	printf("PROGRAM TO PRINT SUM ALL THE ELEMENTS OF ARRAY USING POINTER:\n");
-	printf("==============================================\n");
+	printf("============================================================\n");
 	int arr[100];
 	int n, sum=0;
 	printf("Enter total number of elements in array: ");

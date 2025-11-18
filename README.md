@@ -4,6 +4,7 @@
 ## Math
 |  |
 | ------- |
+| [0012-integer-to-roman](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0012-integer-to-roman) |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 | [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |
 | [0070-climbing-stairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0070-climbing-stairs) |
@@ -33,11 +34,13 @@
 ## Hash Table
 |  |
 | ------- |
+| [0012-integer-to-roman](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0012-integer-to-roman) |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 ## String
 |  |
 | ------- |
 | [0008-string-to-integer-atoi](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0008-string-to-integer-atoi) |
+| [0012-integer-to-roman](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0012-integer-to-roman) |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 | [0014-longest-common-prefix](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0014-longest-common-prefix) |
 | [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |

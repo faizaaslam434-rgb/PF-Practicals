@@ -26,6 +26,7 @@
 | [0018-4sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0018-4sum) |
 | [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
 | [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
+| [0073-set-matrix-zeroes](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0073-set-matrix-zeroes) |
 ## Two Pointers
 |  |
 | ------- |
@@ -38,6 +39,7 @@
 | ------- |
 | [0012-integer-to-roman](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0012-integer-to-roman) |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
+| [0073-set-matrix-zeroes](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0073-set-matrix-zeroes) |
 ## String
 |  |
 | ------- |
@@ -76,4 +78,5 @@
 |  |
 | ------- |
 | [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
+| [0073-set-matrix-zeroes](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0073-set-matrix-zeroes) |
 <!---LeetCode Topics End-->

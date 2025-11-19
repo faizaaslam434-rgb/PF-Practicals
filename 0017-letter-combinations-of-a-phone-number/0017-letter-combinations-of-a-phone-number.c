@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -15,58 +16,99 @@ const char* mapping[] = {
     "wxyz"  // 9
 };
 
-// Backtracking helper function
-void backtrack(char* digits, int index, char* current_combination, char** result, int* returnSize, int* capacity) {
-    // Base case: If we have processed all digits, add the current combination to the result
+// Helper function for the backtracking algorithm
+void backtrack(const char* digits, int index, char* current_combination, char*** result, int* returnSize) {
     if (index == strlen(digits)) {
-        if (*returnSize == *capacity) {
-            // Resize the result array if capacity is reached
-            *capacity *= 2;
-            result = (char**)realloc(result, (*capacity) * sizeof(char*));
+        // Base case: the current combination is complete
+        if (strlen(current_combination) > 0) {
+            // Reallocate memory for the results array to add the new string
+            *result = (char**)realloc(*result, (*returnSize + 1) * sizeof(char*));
+            // Allocate memory for the new string itself and copy the content
+            (*result)[*returnSize] = (char*)malloc((strlen(current_combination) + 1) * sizeof(char));
+            strcpy((*result)[*returnSize], current_combination);
+            (*returnSize)++;
         }
-        // Allocate memory for a new string and copy the current combination
-        result[*returnSize] = (char*)malloc((strlen(digits) + 1) * sizeof(char);
-        strcpy(result[*returnSize], current_combination);
-        (*returnSize)++;
         return;
     }
 
     // Get the current digit and its corresponding letters
     int digit = digits[index] - '0';
     const char* letters = mapping[digit];
-    int letters_len = strlen(letters);
 
-    // Iterate through all possible letters for the current digit
-    for (int i = 0; i < letters_len; i++) {
+    // Iterate through the letters
+    for (int i = 0; i < strlen(letters); i++) {
+        // Append the current letter to the combination
         current_combination[index] = letters[i];
-        // Recursively call backtrack for the next digit
-        backtrack(digits, index + 1, current_combination, result, returnSize, capacity);
+        current_combination[index + 1] = '\0'; // Null-terminate the string temporarily
+
+        // Recurse for the next digit
+        backtrack(digits, index + 1, current_combination, result, returnSize);
+
+        // Backtrack: the current_combination character at this index will be overwritten 
+        // in the next iteration or discarded when returning up the call stack.
     }
 }
 
 /**
- * Return an array of strings of size *returnSize.
- * Note: The returned array must be malloced, assume caller calls free().
+ * @param digits: A string containing digits from 2-9 inclusive.
+ * @param returnSize: A pointer to an integer that will store the size of the returned array.
+ * @return: An array of strings containing all possible letter combinations.
  */
 char** letterCombinations(char* digits, int* returnSize) {
+    // Initialize return size to 0 and result pointer to NULL (for realloc to work like malloc initially)
     *returnSize = 0;
+    char** result = NULL;
+
+    // Handle the edge case of an empty input string
     if (digits == NULL || strlen(digits) == 0) {
-        return NULL;
+        return result; // return NULL or empty array as per LeetCode requirements
     }
 
-    // Initialize capacity for the result array
-    int capacity = 10;
-    char** result = (char**)malloc(capacity * sizeof(char*));
-    
-    // Allocate space for the temporary combination string
-    char* current_combination = (char*)malloc((strlen(digits) + 1) * sizeof(char));
-    current_combination[strlen(digits)] = '\0'; // Null-terminate
+    // A temporary buffer to build each combination string
+    // Max length constraint is 4, plus one for null terminator
+    char* current_combination = (char*)malloc(5 * sizeof(char));
+    current_combination[0] = '\0';
 
     // Start the backtracking process
-    backtrack(digits, 0, current_combination, result, returnSize, &capacity);
+    backtrack(digits, 0, current_combination, &result, returnSize);
 
-    // Free the temporary combination string
+    // Free the temporary buffer
     free(current_combination);
 
     return result;
 }
+
+// Example main function for local testing (not needed for LeetCode submission)
+/*
+int main() {
+    char* digits1 = "23";
+    int size1;
+    char** combos1 = letterCombinations(digits1, &size1);
+    printf("Combinations for \"%s\":\n", digits1);
+    for (int i = 0; i < size1; i++) {
+        printf("%s ", combos1[i]);
+        free(combos1[i]); // Remember to free inner strings
+    }
+    free(combos1); // Remember to free the outer array
+    printf("\n");
+
+    char* digits2 = "9";
+    int size2;
+    char** combos2 = letterCombinations(digits2, &size2);
+    printf("Combinations for \"%s\":\n", digits2);
+    for (int i = 0; i < size2; i++) {
+        printf("%s ", combos2[i]);
+        free(combos2[i]);
+    }
+    free(combos2);
+    printf("\n");
+    
+    char* digits3 = "";
+    int size3;
+    char** combos3 = letterCombinations(digits3, &size3);
+    printf("Combinations for \"%s\": size %d\n", digits3, size3);
+    // free(combos3) not needed as it returns NULL
+
+    return 0;
+}
+*/

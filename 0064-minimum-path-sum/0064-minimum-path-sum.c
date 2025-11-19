@@ -1,71 +1,78 @@
-#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h> // Required for malloc and free if not using a fixed-size array
+
+// Helper macro for finding the minimum of two integers
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
 
 /**
- * Determines if a 9x9 Sudoku board is valid.
+ * Calculates the minimum path sum from top-left to bottom-right in a grid.
  * 
- * @param board: The 9x9 Sudoku board represented as a 2D array of characters.
- * @return: true if the board is valid, false otherwise.
+ * @param grid: The input grid (modified in place). Note: LeetCode uses a pointer-to-pointer approach for 2D arrays in C.
+ * @param gridSize: The number of rows (m).
+ * @param gridColSize: A pointer to an array containing the number of columns (n) for each row.
+ * @return: The minimum path sum.
  */
-bool isValidSudoku(char board[9][9]) { // Correct function signature
-    // We use three 9x9 integer arrays (acting as boolean flags)
-    // to track occurrences of digits 1-9 (indexed 0-8).
-    int seen_rows[9][9] = {0};
-    int seen_cols[9][9] = {0};
-    int seen_boxes[9][9] = {0};
+int minPathSum(int** grid, int gridSize, int* gridColSize) {
+    if (gridSize == 0 || gridColSize[0] == 0) {
+        return 0;
+    }
 
-    for (int r = 0; r < 9; r++) {
-        for (int c = 0; c < 9; c++) {
-            // Skip empty cells
-            if (board[r][c] == '.') {
+    int m = gridSize;
+    int n = gridColSize[0]; // Assuming all rows have the same number of columns
+
+    // We can use the input grid itself as the DP table to save space.
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            // Skip the top-left corner as it's the starting point
+            if (i == 0 && j == 0) {
                 continue;
+            } else if (i == 0) {
+                // For the first row, we can only come from the left
+                grid[i][j] += grid[i][j - 1];
+            } else if (j == 0) {
+                // For the first column, we can only come from above
+                grid[i][j] += grid[i - 1][j];
+            } else {
+                // For all other cells, add the value of the current cell 
+                // to the minimum of the cell above it or the cell to the left.
+                grid[i][j] += MIN(grid[i - 1][j], grid[i][j - 1]);
             }
-
-            // Convert character digit to a 0-based index (0-8)
-            int num_index = board[r][c] - '1'; 
-            
-            // Calculate the index of the 3x3 sub-box (0-8)
-            // (r/3) determines the vertical block (0, 1, 2)
-            // (c/3) determines the horizontal block (0, 1, 2)
-            int box_index = (r / 3) * 3 + (c / 3);
-
-            // Check for existing occurrences in row, column, or box
-            if (seen_rows[r][num_index] || seen_cols[c][num_index] || seen_boxes[box_index][num_index]) {
-                return false; // Violation found
-            }
-
-            // Mark the number as seen in all three tracking arrays
-            seen_rows[r][num_index] = 1;
-            seen_cols[c][num_index] = 1;
-            seen_boxes[box_index][num_index] = 1;
         }
     }
 
-    // If the entire board is traversed without any violations, it is valid
-    return true;
+    // The bottom-right cell now holds the minimum path sum to reach that point.
+    return grid[m - 1][n - 1];
 }
 
-// Example main function for local testing
+// Example main function for local testing (requires dynamic memory management setup)
 /*
 int main() {
-    char board[9][9] = {
-        {'5','3','.','.','7','.','.','.','.'},
-        {'6','.','.','1','9','5','.','.','.'},
-        {'.','9','8','.','.','.','.','6','.'},
-        {'8','.','.','.','6','.','.','.','3'},
-        {'4','.','.','8','.','3','.','.','1'},
-        {'7','.','.','.','2','.','.','.','6'},
-        {'.','6','.','.','.','.','2','8','.'},
-        {'.','.','.','4','1','9','.','.','5'},
-        {'.','.','.','.','8','.','.','7','9'}
-    };
+    // Example 1: grid = [[1,3,1],[1,5,1],[4,2,1]]
+    int m = 3;
+    int n = 3;
+    int** grid = (int**)malloc(m * sizeof(int*));
+    int colSize[3] = {3, 3, 3};
 
-    if (isValidSudoku(board)) {
-        printf("The Sudoku board is Valid.\n");
-    } else {
-        printf("The Sudoku board is Invalid.\n");
+    for(int i = 0; i < m; i++) {
+        grid[i] = (int*)malloc(n * sizeof(int));
     }
+
+    grid[0][0] = 1; grid[0][1] = 3; grid[0][2] = 1;
+    grid[1][0] = 1; grid[1][1] = 5; grid[1][2] = 1;
+    grid[2][0] = 4; grid[2][1] = 2; grid[2][2] = 1;
+
+    int minSum = minPathSum(grid, m, colSize);
+    printf("The minimum path sum is: %d\n", minSum); // Expected output: 7
+
+    // Free allocated memory
+    for(int i = 0; i < m; i++) {
+        free(grid[i]);
+    }
+    free(grid);
 
     return 0;
 }
 */
+
+

@@ -11,6 +11,7 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
 | [0070-climbing-stairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0070-climbing-stairs) |
 ## Memoization
 |  |
@@ -24,6 +25,7 @@
 | [0016-3sum-closest](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0016-3sum-closest) |
 | [0018-4sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0018-4sum) |
 | [0031-next-permutation](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0031-next-permutation) |
+| [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
 ## Two Pointers
 |  |
 | ------- |
@@ -70,4 +72,8 @@
 |  |
 | ------- |
 | [0024-swap-nodes-in-pairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0024-swap-nodes-in-pairs) |
+## Matrix
+|  |
+| ------- |
+| [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
 <!---LeetCode Topics End-->

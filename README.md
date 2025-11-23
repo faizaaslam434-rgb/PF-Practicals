@@ -12,6 +12,7 @@
 |  |
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0005-longest-palindromic-substring) |
+| [0022-generate-parentheses](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0022-generate-parentheses) |
 | [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
 | [0070-climbing-stairs](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0070-climbing-stairs) |
 ## Memoization
@@ -50,6 +51,7 @@
 | [0012-integer-to-roman](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0012-integer-to-roman) |
 | [0013-roman-to-integer](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0013-roman-to-integer) |
 | [0014-longest-common-prefix](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0014-longest-common-prefix) |
+| [0022-generate-parentheses](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0022-generate-parentheses) |
 | [0067-add-binary](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0067-add-binary) |
 ## Trie
 |  |
@@ -82,4 +84,8 @@
 | ------- |
 | [0064-minimum-path-sum](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0064-minimum-path-sum) |
 | [0073-set-matrix-zeroes](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0073-set-matrix-zeroes) |
+## Backtracking
+|  |
+| ------- |
+| [0022-generate-parentheses](https://github.com/faizaaslam434-rgb/PF-Practicals/tree/master/0022-generate-parentheses) |
 <!---LeetCode Topics End-->

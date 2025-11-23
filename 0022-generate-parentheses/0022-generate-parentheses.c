@@ -1,103 +1,79 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 /**
  * Helper recursive function for backtracking.
  * 
- * @param result: A pointer to the dynamically allocated array of result strings.
- * @param returnSize: A pointer to the count of valid strings found so far.
- * @param current_string: The string being built (passed by value for clarity in recursion).
- * @param open_count: Number of opening parentheses used.
- * @param close_count: Number of closing parentheses used.
- * @param n: The target number of pairs.
+ * @param result Pointer to an array of strings (char**) to store final answers.
+ * @param count Pointer to an integer to keep track of the number of solutions found.
+ * @param current_string The current string being built.
+ * @param open_count Number of opening parentheses used so far.
+ * @param close_count Number of closing parentheses used so far.
+ * @param max_pairs The target number of pairs (n).
  */
-void backtrack(char*** result, int* returnSize, char* current_string, int open_count, int close_count, int n) {
-    // Base case: A valid combination is formed when both counts equal n
-    if (open_count == n && close_count == n) {
-        // Reallocate memory for the results array to add the new string
-        *result = (char**)realloc(*result, (*returnSize + 1) * sizeof(char*));
+void backtrack(char*** result, int* count, char* current_string, int open_count, int close_count, int max_pairs) {
+    // Base case: If we have used all 'n' pairs (length is 2*n), 
+    // we have found a valid combination.
+    if (strlen(current_string) == 2 * max_pairs) {
+        // Allocate memory for the new solution string
+        char* solution = (char*)malloc((2 * max_pairs + 1) * sizeof(char));
+        if (solution == NULL) return; // Handle allocation failure
+
+        strcpy(solution, current_string);
         
-        // Allocate memory for the new string itself and copy the content
-        size_t len = strlen(current_string);
-        (*result)[*returnSize] = (char*)malloc((len + 1) * sizeof(char));
-        strcpy((*result)[*returnSize], current_string);
-        
-        (*returnSize)++;
+        // Store the solution in the result array
+        // We assume the caller (LeetCode environment) has already allocated 
+        // sufficient space or we need to reallocate dynamically if necessary.
+        // For standard LeetCode C interface, dynamic reallocation is expected.
+        *result = (char**)realloc(*result, (*count + 1) * sizeof(char*));
+        (*result)[*count] = solution;
+        (*count)++;
         return;
     }
 
-    // Recursive Case 1: Add an opening parenthesis
-    // We can add '(' if we haven't reached the limit 'n'
-    if (open_count < n) {
-        char temp_string[2 * n + 1]; // Use a temporary buffer for the recursive call
+    // Recursive Step 1: Add an opening parenthesis if we haven't used all 'n' available opens.
+    if (open_count < max_pairs) {
+        // Append '(' to the current string
+        char temp_string[100]; // Use a sufficiently large temp buffer for recursion
         strcpy(temp_string, current_string);
         strcat(temp_string, "(");
-        backtrack(result, returnSize, temp_string, open_count + 1, close_count, n);
+        
+        backtrack(result, count, temp_string, open_count + 1, close_count, max_pairs);
     }
 
-    // Recursive Case 2: Add a closing parenthesis
-    // We can add ')' only if the number of closing < number of opening
+    // Recursive Step 2: Add a closing parenthesis if the number of closing 
+    // parentheses is less than the number of opening ones (maintains validity).
     if (close_count < open_count) {
-        char temp_string[2 * n + 1]; // Use a temporary buffer for the recursive call
+        // Append ')' to the current string
+        char temp_string[100];
         strcpy(temp_string, current_string);
         strcat(temp_string, ")");
-        backtrack(result, returnSize, temp_string, open_count, close_count + 1, n);
+
+        backtrack(result, count, temp_string, open_count, close_count + 1, max_pairs);
     }
 }
 
+
 /**
- * LeetCode Function Signature
- * @param n: The number of pairs of parentheses.
- * @param returnSize: A pointer to an integer that will store the size of the returned array.
- * @return: An array of strings containing all possible letter combinations.
+ * LeetCode function signature.
+ * Note: The return array size is written to the *returnSize pointer.
  */
-char** generateParenthesis(int n, int* returnSize) {
+char ** generateParenthesis(int n, int* returnSize) {
+    // Initialize the return size to 0
     *returnSize = 0;
-    char** result = NULL; // Initialize result pointer to NULL (for realloc to work like malloc initially)
-
-    if (n <= 0) {
-        return result;
-    }
-
-    // Start the backtracking process with an empty string and zero counts
-    // We pass a local variable "path" to manage the string building
-    char path[2 * n + 1];
-    path = '\0'; 
     
-    backtrack(&result, returnSize, path, 0, 0, n);
-
+    // Dynamically allocate memory for the results array (will be expanded by realloc in backtrack)
+    char** result = NULL;
+    
+    // Start the backtracking process with an empty string, 0 counts, and the target 'n'
+    char initial_string[1] = ""; // Start with an empty C string
+    backtrack(&result, returnSize, initial_string, 0, 0, n);
+    
     return result;
 }
 
-// Example main function for local testing (not needed for LeetCode submission)
-/*
-int main() {
-    int n1 = 3;
-    int size1;
-    char** combos1 = generateParenthesis(n1, &size1);
-    printf("Combinations for n = %d:\n", n1);
-    for (int i = 0; i < size1; i++) {
-        printf("%s ", combos1[i]);
-        free(combos1[i]); // Free inner strings
-    }
-    free(combos1); // Free the outer array
-    printf("\nTotal combinations: %d\n", size1);
-
-    int n2 = 1;
-    int size2;
-    char** combos2 = generateParenthesis(n2, &size2);
-    printf("Combinations for n = %d:\n", n2);
-    for (int i = 0; i < size2; i++) {
-        printf("%s ", combos2[i]);
-        free(combos2[i]); 
-    }
-    free(combos2); 
-    printf("\nTotal combinations: %d\n", size2);
-
-    return 0;
-}
-*/
-
-  
+// Note: When submitting to LeetCode, you typically only need to paste the 
+// `generateParenthesis` function and necessary includes. The test runner 
+// handles the main function and memory deallocation internally.
 
